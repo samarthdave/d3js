@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>d3js</title>
+
+  <!-- resources -->
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Gelasio|Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- scripts -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+  
+  <!-- d3 dom start -->
+
+  <h1>d3 Showcase</h1>
+
+  <p>First paragraph</p>
+  <p id="paragraph-two">Second paragraph</p>
+
+  <table>
+    <tr>
+      <td>One</td>
+      <td>Two</td>
+    </tr>
+    <tr>
+      <td>Three</td>
+      <td>Four</td>
+    </tr>
+  </table>
+
+  <!-- d3 dom end -->
+
+  <script>
+    // will export this once it gets big enough
+    d3.selectAll('p').style('color', '#00008b');
+    d3.select("#paragraph-two").style('color', 'green');
+
+    // selecting nested elements within the FIRST tr
+    d3.select("tr").selectAll("td").style('background-color', 'green');
+
+    // set text manually
+    d3.select("p").text("This is paragraph.");
+
+    // inject more html
+    d3.select('body').append('p').text('More text in this paragraph');
+
+    // "insert" html
+    d3.select("table").insert("tr").text("second row");
+  </script>
+</body>
+</html>
